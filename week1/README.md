@@ -55,6 +55,8 @@ We can measure the accuracy of our hypothesis function by using a cost function.
 ![Drag Racing](img/img1.png)
 
 
-To break it apart, it is <sup>1</sup>/<sub>2</sub> * x̄, where x̄ is the mean of the squares of hΘ(xi) - yi, or the difference between the predicted value and the actual value.
+To break it apart, it is <sup>1</sup>/<sub>2</sub> * x̄, where x̄ is the mean of the squares of hΘ(x<sub>i</sub>) - y<sub>i</sub>, or the difference between the predicted value and the actual value.
 
 This function is otherwise called the "Squared error function", or "Mean squared error". The mean is halved (<sup>1</sup>/<sub>2</sub>) as a convenience for the computation of the gradient descent, as the derivative term of the square function will cancel out the <sup>1</sup>/<sub>2</sub> term.
+
+The goal is to minimize Θ<sub>0</sub> and Θ<sub>1</sub> so that hΘ(x<sub>i</sub>) gets as close as possible from the y
