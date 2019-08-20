@@ -46,3 +46,8 @@ To establish notation for future use, we’ll use x<sup>(i)</sup> to denote the 
 To describe the supervised learning problem slightly more formally, our goal is, given a training set, to learn a function h : X → Y so that h(x) is a “good” predictor for the corresponding value of y. For historical reasons, this function h is called a hypothesis. 
 
 When the target variable that we’re trying to predict is continuous, such as in our housing example, we call the learning problem a <b>regression</b> problem. When y can take on only a small number of discrete values (such as if, given the living area, we wanted to predict if a dwelling is a house or an apartment, say), we call it a <b>classification</b> problem.
+
+### Cost Function
+
+We can measure the accuracy of our hypothesis function by using a cost function. This takes an average difference (actually a fancier version of an average) of all the results of the hypothesis with inputs from x's and the actual output y's.
+
