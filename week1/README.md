@@ -37,3 +37,12 @@ Clustering: Take a collection of 1,000,000 different genes, and find a way to au
 Non-clustering: The "Cocktail Party Algorithm", allows you to find structure in a chaotic environment. (i.e. identifying individual voices and music from a mesh of sounds at a cocktail party).
 
 
+## Model and Cost Function
+
+### Model Representation
+
+To establish notation for future use, we’ll use x<sup>(i)</sup> to denote the “input” variables (living area in this example), also called input features, and y<sup>(i)</sup> to denote the “output” or target variable that we are trying to predict (price). A pair (x<sup>(i)</sup>, y<sup>(i)</sup>) is called a training example, and the dataset that we’ll be using to learn—a list of m training examples(x<sup>(i)</sup>, y<sup>(i)</sup>); i=1,...,m—is called a training set.We will also use X to denote the space of input values, and Y to denote the space of output values. In this example, X = Y = ℝ.
+ 
+To describe the supervised learning problem slightly more formally, our goal is, given a training set, to learn a function h : X → Y so that h(x) is a “good” predictor for the corresponding value of y. For historical reasons, this function h is called a hypothesis. 
+
+When the target variable that we’re trying to predict is continuous, such as in our housing example, we call the learning problem a <b>regression</b> problem. When y can take on only a small number of discrete values (such as if, given the living area, we wanted to predict if a dwelling is a house or an apartment, say), we call it a <b>classification</b> problem.
