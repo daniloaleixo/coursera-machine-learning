@@ -52,7 +52,7 @@ When the target variable that we’re trying to predict is continuous, such as i
 We can measure the accuracy of our hypothesis function by using a cost function. This takes an average difference (actually a fancier version of an average) of all the results of the hypothesis with inputs from x's and the actual output y's.
 
 
-![Drag Racing](img/img1.png)
+![IMG](img/img1.png)
 
 
 To break it apart, it is <sup>1</sup>/<sub>2</sub> * x̄, where x̄ is the mean of the squares of hΘ(x<sub>i</sub>) - y<sub>i</sub>, or the difference between the predicted value and the actual value.
@@ -60,3 +60,30 @@ To break it apart, it is <sup>1</sup>/<sub>2</sub> * x̄, where x̄ is the mean 
 This function is otherwise called the "Squared error function", or "Mean squared error". The mean is halved (<sup>1</sup>/<sub>2</sub>) as a convenience for the computation of the gradient descent, as the derivative term of the square function will cancel out the <sup>1</sup>/<sub>2</sub> term.
 
 The goal is to minimize Θ<sub>0</sub> and Θ<sub>1</sub> so that hΘ(x<sub>i</sub>) gets as close as possible from the y
+
+## Parameter Learning
+
+### Gradient Descent
+
+Our goal of minimizing the cost function could be better predicted using the gradient function (the direction in which the function will go as low as possible) 
+
+The gradient descent algorithm is as follows:
+
+repeating until convergence:
+
+![IMG](img/img2.png)
+
+### Gradient Descent to Linear Regression
+
+When specifically applied to the case of linear regression, a new form of the gradient descent equation can be derived. We can substitute our actual cost function and our actual hypothesis function and modify the equation to :
+
+![IMG](img/img3.png)
+
+
+Here is the derivation of J:
+
+![IMG](img/img4.png)
+
+The point of all this is that <b>if we start with a guess for our hypothesis and then repeatedly apply these gradient descent equations, our hypothesis will become more and more accurate</b>.
+
+So, this is simply gradient descent on the original cost function J. This method looks at every example in the entire training set on every step, and is called batch gradient descent. Note that, while gradient descent can be susceptible to local minima in general, the optimization problem we have posed here for linear regression has only one global, and no other local, optima; thus gradient descent always converges (assuming the learning rate α is not too large) to the global minimum. Indeed, J is a convex quadratic function.
