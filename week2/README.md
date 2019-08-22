@@ -47,4 +47,15 @@ Two techniques to help with this are <b>feature scaling</b> and <b>mean normaliz
 
 Where μ<sub>i</sub> is the average of all the values for feature (i) and s<sub>i</sub> is the range of values (max - min), or s<sub>i</sub> is the standard deviation.
 
+## Gradient Descent in Practice II - Learning Rate
+
+Some tips when running gradient descent:
+
+* <b>Debugging gradient descent</b>. Make a plot with number of iterations on the x-axis. Now plot the cost function, J(θ) over the number of iterations of gradient descent. If J(θ) ever increases, then you probably need to decrease α.
+
+* <b>Automatic convergence test</b>. Declare convergence if J(θ) decreases by less than E in one iteration, where E is some small value such as 10<sup>−3</sup>To summarize:
+
+If α is too small: slow convergence.
+
+If α is too large: ￼may not decrease on every iteration and thus may not converge.. However in practice it's difficult to choose this threshold value.
 
