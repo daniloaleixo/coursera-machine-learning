@@ -72,3 +72,20 @@ Our hypothesis function need not be linear (a straight line) if that does not fi
 We can change the behavior or curve of our hypothesis function by making it a quadratic, cubic or square root function (or any other form).
 
 For example, if our hypothesis function is h<sub>θ</sub>(x) = θ<sub>0</sub> + θ<sub>1</sub>x<sub>1</sub> hen we can create additional features based on x<sub>1</sub>, to get the quadratic function h<sub>θ</sub>(x) = θ<sub>0</sub> + θ<sub>1</sub>x<sub>1</sub> + θ<sub>2</sub>x<sub>1</sub><sup>2</sup>
+
+
+## Comparing the Parameters Analytically
+
+### Normal Equation
+
+Gradient descent gives one way of minimizing J. Let’s discuss a second way of doing so, this time performing the minimization explicitly and without resorting to an iterative algorithm. In the "Normal Equation" method, we will minimize J by explicitly taking its derivatives with respect to the θj ’s, and setting them to zero. This allows us to find the optimum theta without iteration. The normal equation formula is given below:
+
+![IMG](img/img5.png)
+
+There is no need to do feature scaling with the normal equation.
+
+The following is a comparison of gradient descent and the normal equation:
+
+![IMG](img/img6.png)
+
+With the normal equation, computing the inversion has complexity <b>O(n<sup>3</sup>)</b>. So if we have a very large number of features, the normal equation will be slow. In practice, when n exceeds 10,000 it might be a good time to go from a normal solution to an iterative process.
