@@ -15,3 +15,7 @@ We now introduce notation for equations where we can have any number of input va
 The multivariable form of the hypothesis function accommodating these multiple features is as follows:
 
 h<sub>θ</sub>(x) = θ<sub>0</sub> + θ<sub>1</sub>x<sub>1</sub> + θ<sub>2</sub>x<sub>2</sub> + ... + θ<sub>n</sub>x<sub>n</sub>
+
+Using the definition of matrix multiplication, our multivariable hypothesis function can be concisely represented as:
+
+![IMG](img/img1.png)
