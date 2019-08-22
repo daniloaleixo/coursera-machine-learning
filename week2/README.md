@@ -19,3 +19,13 @@ h<sub>θ</sub>(x) = θ<sub>0</sub> + θ<sub>1</sub>x<sub>1</sub> + θ<sub>2</sub
 Using the definition of matrix multiplication, our multivariable hypothesis function can be concisely represented as:
 
 ![IMG](img/img1.png)
+
+## Gradient Descent For Multiple Variables
+
+The gradient descent equation itself is generally the same form; we just have to repeat it for our 'n' features:
+
+![IMG](img/img2.png)
+
+In other words:
+
+![IMG](img/img3.png)
