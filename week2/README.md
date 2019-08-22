@@ -29,3 +29,22 @@ The gradient descent equation itself is generally the same form; we just have to
 In other words:
 
 ![IMG](img/img3.png)
+
+
+## Gradient Descent in Practice I - Feature Scaling
+
+We can speed up gradient descent by having each of our input values in roughly the same range. This is because θ will descend quickly on small ranges and slowly on large ranges, and so will oscillate inefficiently down to the optimum when the variables are very uneven.
+
+The way to prevent this is to modify the ranges of our input variables so that they are all roughly the same. Ideally:
+
+−1 ≤ x<sub>(i)</sub> ≤ 1
+
+These aren't exact requirements; we are only trying to speed things up. The goal is to get all input variables into roughly one of these ranges, give or take a few.
+
+Two techniques to help with this are <b>feature scaling</b> and <b>mean normalization</b>. Feature scaling involves dividing the input values by the range (i.e. the maximum value minus the minimum value) of the input variable, resulting in a new range of just 1. Mean normalization involves subtracting the average value for an input variable from the values for that input variable resulting in a new average value for the input variable of just zero. To implement both of these techniques, adjust your input values as shown in this formula:
+
+![IMG](img/img4.png)
+
+Where μ<sub>i</sub> is the average of all the values for feature (i) and s<sub>i</sub> is the range of values (max - min), or s<sub>i</sub> is the standard deviation.
+
+
