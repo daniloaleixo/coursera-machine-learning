@@ -20,7 +20,7 @@ Using the definition of matrix multiplication, our multivariable hypothesis func
 
 ![IMG](img/img1.png)
 
-## Gradient Descent For Multiple Variables
+### Gradient Descent For Multiple Variables
 
 The gradient descent equation itself is generally the same form; we just have to repeat it for our 'n' features:
 
@@ -31,7 +31,7 @@ In other words:
 ![IMG](img/img3.png)
 
 
-## Gradient Descent in Practice I - Feature Scaling
+### Gradient Descent in Practice I - Feature Scaling
 
 We can speed up gradient descent by having each of our input values in roughly the same range. This is because θ will descend quickly on small ranges and slowly on large ranges, and so will oscillate inefficiently down to the optimum when the variables are very uneven.
 
@@ -47,7 +47,7 @@ Two techniques to help with this are <b>feature scaling</b> and <b>mean normaliz
 
 Where μ<sub>i</sub> is the average of all the values for feature (i) and s<sub>i</sub> is the range of values (max - min), or s<sub>i</sub> is the standard deviation.
 
-## Gradient Descent in Practice II - Learning Rate
+### Gradient Descent in Practice II - Learning Rate
 
 Some tips when running gradient descent:
 
@@ -59,3 +59,16 @@ If α is too small: slow convergence.
 
 If α is too large: ￼may not decrease on every iteration and thus may not converge.. However in practice it's difficult to choose this threshold value.
 
+### Features and Polynomial Regression
+
+We can improve our features and the form of our hypothesis function in a couple different ways.
+
+We can combine multiple features into one. For example, we can combine x<sub>1</sub> and x<sub>2</sub> into a new feature x<sub>3</sub> by taking x<sub>1</sub> * x<sub>2</sub> 
+
+#### Polynomial Regression
+
+Our hypothesis function need not be linear (a straight line) if that does not fit the data well.
+
+We can change the behavior or curve of our hypothesis function by making it a quadratic, cubic or square root function (or any other form).
+
+For example, if our hypothesis function is h<sub>θ</sub>(x) = θ<sub>0</sub> + θ<sub>1</sub>x<sub>1</sub> hen we can create additional features based on x<sub>1</sub>, to get the quadratic function h<sub>θ</sub>(x) = θ<sub>0</sub> + θ<sub>1</sub>x<sub>1</sub> + θ<sub>2</sub>x<sub>1</sub><sup>2</sup>
