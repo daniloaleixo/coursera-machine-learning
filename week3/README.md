@@ -35,3 +35,13 @@ making it useful for transforming an arbitrary-valued function into a function b
 For example, h<sub>θ</sub>(x) = 0.7 gives us a probability of 70% that our output is 1. 
 Our probability that our prediction is 0 is just the complement of our probability that it is 1 
 (e.g. if probability that it is 1 is 70%, then the probability that it is 0 is 30%).
+
+
+### Decision Boundary
+
+In order to get our discrete 0 or 1 classification, we can translate the output of the hypothesis function as follows:
+
+> h<sub>θ</sub>(x)  >= 0.5 then y = 1
+
+> h<sub>θ</sub>(x)  < 0.5 then y = 0
+
