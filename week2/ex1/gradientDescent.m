@@ -17,19 +17,26 @@ for iter = 1:num_iters
     %       of the cost function (computeCost) and gradient here.
     %
 
+    % Implementation with for
     sum_arr = zeros(2);
-    for i = 1:m
-      sum_arr(1) = sum_arr(1) + (theta' * X(i, :)' - y(i)) * X(i, 1);
-      sum_arr(2) = sum_arr(2) + (theta' * X(i, :)' - y(i)) * X(i, 2);
-    endfor
+    % for i = 1:m
+    %   sum_arr(1) = sum_arr(1) + (theta' * X(i, :)' - y(i)) * X(i, 1);
+    %   sum_arr(2) = sum_arr(2) + (theta' * X(i, :)' - y(i)) * X(i, 2);
+    % endfor
 
-    temp_theta(1) = theta(1) - alpha * sum_arr(1) / m;
-    temp_theta(2) = theta(2) - alpha * sum_arr(2) / m;
+    % sum_arr
 
-    % temp_theta
+    % temp_theta(1) = theta(1) - alpha * sum_arr(1) / m;
+    % temp_theta(2) = theta(2) - alpha * sum_arr(2) / m;
 
+    % theta = temp_theta';
 
-    theta = temp_theta';
+    
+
+    % Vectorization implementation
+    theta = theta - alpha * (X' * (X * theta - y)) / m;
+
+    
 
 
     % ============================================================
