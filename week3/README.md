@@ -24,11 +24,12 @@ Our new form uses the "Sigmoid Function," also called the "Logistic Function":
 
 The following image shows us what the sigmoid function looks like:
 
+![IMG](img/img1.png)
 
 The function g(z), shown here, maps any real number to the (0, 1) interval, 
 making it useful for transforming an arbitrary-valued function into a function better suited for classification.
 
-
+![IMG](img/img2.png)
 
 <b> h<sub>θ</sub>(x) will give us the probability that our output is 1. </b>. 
 For example, h<sub>θ</sub>(x) = 0.7 gives us a probability of 70% that our output is 1. 
