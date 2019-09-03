@@ -26,8 +26,14 @@ sigma = zeros(1, size(X, 2));
 % Hint: You might find the 'mean' and 'std' functions useful.
 %       
 
+% For each feature
+% for i = 1:length(X(1, :))
+%   mu(i) = mean(X(:,i));
+%   sigma(i) = std(X(:,i));
+% endfor
 
-
+% Vectorization implementation
+X_norm = (X .- mean(X, 1)) ./ std(X,0,1)
 
 
 
