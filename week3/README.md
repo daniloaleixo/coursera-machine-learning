@@ -41,7 +41,23 @@ Our probability that our prediction is 0 is just the complement of our probabili
 
 In order to get our discrete 0 or 1 classification, we can translate the output of the hypothesis function as follows:
 
-> h<sub>θ</sub>(x)  >= 0.5 then y = 1
 
+> h<sub>θ</sub>(x)  >= 0.5 then y = 1
+> 
 > h<sub>θ</sub>(x)  < 0.5 then y = 0
+
+
+The way our logistic function g behaves is that when its input is greater than or equal to zero, its output is greater than or equal to 0.5:
+
+> g(z) >= 0.5 when z >= 0 
+
+Remember:
+
+
+> z = 0, e<sup>0</sup> = 1 then g(z) = 1/2
+> 
+> z tordards ∞, e<sup>-∞</sup> then g(z) = 1
+> 
+> z tordards -∞, e<sup>∞</sup> then g(z) = 0
+
 
