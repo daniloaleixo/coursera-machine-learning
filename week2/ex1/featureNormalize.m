@@ -33,7 +33,9 @@ sigma = zeros(1, size(X, 2));
 % endfor
 
 % Vectorization implementation
-X_norm = (X .- mean(X, 1)) ./ std(X,0,1)
+mu = mean(X, 1);
+sigma = std(X,0,1);
+X_norm = (X .- mean(X, 1)) ./ std(X,0,1);
 
 
 

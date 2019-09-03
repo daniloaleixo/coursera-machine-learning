@@ -18,7 +18,7 @@ for iter = 1:num_iters
     %
 
     % Implementation with for
-    sum_arr = zeros(2);
+    % sum_arr = zeros(2);
     % for i = 1:m
     %   sum_arr(1) = sum_arr(1) + (theta' * X(i, :)' - y(i)) * X(i, 1);
     %   sum_arr(2) = sum_arr(2) + (theta' * X(i, :)' - y(i)) * X(i, 2);
