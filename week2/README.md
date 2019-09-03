@@ -31,6 +31,25 @@ In other words:
 ![IMG](img/img3.png)
 
 
+### Final Formula for Linear Regression
+
+The hypothesis of linear regression is defined as:
+
+![IMG](img/img7.png)
+
+The cost function of linear regression is defined as:
+
+![IMG](img/img8.png)
+
+The derivative of cost function to each θ is defined as:
+
+![IMG](img/img9.png)
+
+In each iteration of gradient descent, we update all the θ using the following equation:
+
+![IMG](img/img10.png)
+
+
 ### Gradient Descent in Practice I - Feature Scaling
 
 We can speed up gradient descent by having each of our input values in roughly the same range. This is because θ will descend quickly on small ranges and slowly on large ranges, and so will oscillate inefficiently down to the optimum when the variables are very uneven.
@@ -89,3 +108,34 @@ The following is a comparison of gradient descent and the normal equation:
 ![IMG](img/img6.png)
 
 With the normal equation, computing the inversion has complexity <b>O(n<sup>3</sup>)</b>. So if we have a very large number of features, the normal equation will be slow. In practice, when n exceeds 10,000 it might be a good time to go from a normal solution to an iterative process.
+
+
+## Vectorization
+
+In order to optimize calculation of linear regression we use vector and matrices that are way faster.
+
+### Hypothesis Implementation
+
+The hypothesis of each sample can be vectorized using following formula:
+
+![IMG](img/img11.png)
+
+In order to achieve the hypothesis for all the samples as a list, we use the following array dot product:
+
+![IMG](img/img12.png)
+
+### Cost function Implementation
+
+Based on the vectorization of hypothesis, we can easily vectorize the cost function as:
+
+![IMG](img/img13.png)
+
+### Derivation Implementation
+
+The derivation of cost function regards to each θ can be vectorized as:
+
+![IMG](img/img14.png)
+
+The derivation of cost function to all θ can be vectorized as:
+
+![IMG](img/img15.png)
