@@ -25,7 +25,7 @@ The course is available at https://www.coursera.org/learn/machine-learning/home/
     <ul>
       <li>
         <a href="https://github.com/daniloaleixo/coursera-machine-learning/blob/master/week2/README.md#linear-regression-with-multiple-variables">
-          Introduction
+          Linear Regression with Multiple Variables
         </a>
       </li>
     </ul>
