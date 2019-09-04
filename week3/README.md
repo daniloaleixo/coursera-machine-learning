@@ -194,3 +194,28 @@ Regularization
   </ul>
 </li>
 </ol>
+
+### Cost Function
+
+If we have overfitting from our hypothesis function, we can reduce the weight that some of the terms in our function carry by increasing their cost.
+
+Say we wanted to make the following function more quadratic:
+
+![IMG](img/img14.png)
+
+We'll want to eliminate the influence of θ<sub>3</sub>x<sup>3</sup> and θ<sub>4</sub>x<sup>4</sup>. Without actually getting rid of these features or changing the form of our hypothesis, we can instead modify our cost function:
+
+![IMG](img/img15.png)
+
+We've added two extra terms at the end to inflate the cost of θ<sub>3</sub> and θ<sub>4</sub>. Now, in order for the cost function to get close to zero, we will have to reduce the values of θ<sub>3</sub> and θ<sub>4</sub> to near zero. This will in turn greatly reduce the values of θ<sub>3</sub>x<sup>3</sup> and θ<sub>4</sub>x<sup>4</sup> in our hypothesis function. 
+
+
+We could also regularize all of our theta parameters in a single summation as:
+
+![IMG](img/img16.png)
+
+The λ, or lambda, is the <b>regularization parameter</b>. It determines how much the costs of our theta parameters are inflated.
+
+Using the above cost function with the extra summation, we can smooth the output of our hypothesis function to reduce overfitting. If lambda is chosen to be too large, it may smooth out the function too much and cause underfitting.
+
+### Regularized Linear Regression
