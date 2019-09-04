@@ -247,3 +247,24 @@ To add in regularization, the equation is the same as our original, except that 
 L is a matrix with 0 at the top left and 1's down the diagonal, with 0's everywhere else. It should have dimension (n+1)×(n+1). Intuitively, this is the identity matrix (though we are not including x<sub>0</sub>), multiplied with a single real number λ.
 
 Recall that if m < n, then X<sup>T</sup>X is non-invertible. However, when we add the term λ⋅L, then X<sup>T</sup>X + λ⋅L becomes invertible.
+
+
+### Regularized Logistic Regression
+
+We can regularize logistic regression in a similar way that we regularize linear regression. As a result, we can avoid overfitting. 
+
+#### Cost Function
+
+Recall that our cost function for logistic regression was:
+
+![IMG](img/img7.png)
+
+We can regularize this equation by adding a term to the end:
+
+![IMG](img/img20.png)
+
+The second sum, ∑j=1...n θ<sub>j</sub><sup>2</sup> <b>means to explicitly exclude</b> the bias term, θ<sub>0</sub>. I.e. the θ vector is indexed from 0 to n (holding n+1 values, θ<sub>0</sub> through θ<sub>n</sub>), and this sum explicitly skips θ<sub>0</sub>, by running from 1 to n, skipping 0. Thus, when computing the equation, we should continuously update the two following equations:
+
+![IMG](img/img21.png)
+
+
