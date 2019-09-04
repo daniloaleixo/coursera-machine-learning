@@ -4,7 +4,7 @@ The course is available at https://www.coursera.org/learn/machine-learning/home/
 
 ### Topics:
 
-<ol>
+<ul>
    <li>
     <a href="https://github.com/daniloaleixo/coursera-machine-learning/blob/master/week1/README.md">Week1</a>
     <ul>
@@ -45,4 +45,4 @@ The course is available at https://www.coursera.org/learn/machine-learning/home/
       </li>
     </ul>
   </li>
-</ol>
+</ul>
