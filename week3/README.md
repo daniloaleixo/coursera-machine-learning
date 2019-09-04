@@ -63,3 +63,24 @@ Remember:
 <b>The decision boundary is the line that separates the area where y = 0 and where y = 1.</b> It is created by our hypothesis function.
 
 
+## Logistic Regression Model
+
+### Cost Function
+
+We cannot use the same cost function that we use for linear regression because the Logistic Function will cause the output to be wavy, causing many local optima. In other words, it will not be a convex function.
+
+Instead, our cost function for logistic regression looks like:
+
+![IMG](img/img3.png)
+
+When y = 1, we get the following plot for J(θ) vs h<sub>θ</sub>(x):
+
+![IMG](img/img4.png)
+
+Similarly, when y = 0, we get the following plot for J(θ) vs h<sub>θ</sub>(x):
+
+![IMG](img/img5.png)
+
+
+### Simplified Cost Function and Gradient Descent
+
