@@ -19,7 +19,15 @@ grad = zeros(size(theta));
 
 
 
+h = sigmoid(X * theta);
 
+theta_without_0 = theta(2:size(theta));
+J = ((-1 * y' * log(h) - (1 - y)' * log(1 - h)) / m ) + (theta_without_0' * theta_without_0 * lambda / 2 / m);
+
+% theta0 doesnot have penalization
+reg_deriv = (lambda / m) .* theta;
+reg_deriv(1) = 0;
+grad = ((X' * (h - y)) ./ m) + reg_deriv;
 
 
 % =============================================================
