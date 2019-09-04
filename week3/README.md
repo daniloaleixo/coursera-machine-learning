@@ -160,3 +160,37 @@ The following image shows how one could classify 3 classes:
 Train a logistic regression classifier h<sub>θ</sub>(x) for each class￼ to predict the probability that ￼ ￼y = i￼ ￼.
 
 To make a prediction on a new x, pick the class ￼that maximizes h<sub>θ</sub>(x)
+
+## Solving the problem of overfitting
+
+### The Problem of Overfitting
+
+Consider the problem of predicting y from x ∈ R. 
+
+![IMG](img/img13.png)
+
+
+The leftmost figure below shows the result of fitting a y = θ<sub>0</sub>+θ<sub>1</sub>x to a dataset. 
+We see that the data doesn’t really lie on straight line, and so the fit is not very good.
+Instead, if we had added an extra feature x<sup>2</sup>, and fit y = θ<sub>0</sub> + θ<sub>1</sub>x + θ<sub>2</sub>x<sup>2</sup>, then we obtain a slightly better fit to the data (See middle figure). Naively, it might seem that the more features we add, the better. However, there is also a danger in adding too many features: The rightmost figure is the result of fitting a 5<sup>th</sup> order polynomial.
+We see that even though the fitted curve passes through the data perfectly, we would not expect this to be a very good predictor of, say, housing prices (y) for different living areas (x). 
+Without formally defining what these terms mean, we’ll say the figure on the left shows an instance of <b>underfitting</b>—in which the data clearly shows structure not captured by the model—and the figure on the right is an example of <b>overfitting</b>.
+
+There are two main options to address the issue of overfitting:
+
+<ol>
+<li>
+  Reduce the number of features:
+  <ul>
+  <li>Manually select which features to keep.</li>
+  <li>Use a model selection algorithm (studied later in the course).</li>
+  </ul>
+</li>
+<li>
+Regularization
+  <ul>
+  <li>Keep all the features, but reduce the magnitude of parameters θ<sub>j</sub>.</li>
+  <li>Regularization works well when we have a lot of slightly useful features.</li>
+  </ul>
+</li>
+</ol>
