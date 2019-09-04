@@ -84,3 +84,28 @@ Similarly, when y = 0, we get the following plot for J(θ) vs h<sub>θ</sub>(x):
 
 ### Simplified Cost Function and Gradient Descent
 
+We can compress our cost function's two conditional cases into one case:
+
+![IMG](img/img6.png)
+
+We can fully write out our entire cost function as follows:
+
+![IMG](img/img7.png)
+
+A vectorized implementation is:
+
+![IMG](img/img8.png)
+
+#### Gradient Descent
+
+Remember that the general form of gradient descent is the derivative with respect to every θ<sub>j</sub>
+
+We can work out the derivative part using calculus to get:
+
+![IMG](img/img9.png)
+
+Notice that <b>this algorithm is identical to the one we used in linear regression</b>. We still have to simultaneously update all values in theta.
+
+A vectorized implementation is:
+
+![IMG](img/img10.png)
