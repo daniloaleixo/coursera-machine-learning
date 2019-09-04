@@ -60,4 +60,6 @@ Remember:
 > 
 > z tordards -∞, e<sup>∞</sup> then g(z) = 0
 
+<b>The decision boundary is the line that separates the area where y = 0 and where y = 1.</b> It is created by our hypothesis function.
+
 
