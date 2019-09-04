@@ -1,4 +1,4 @@
-# Week 3
+# Logistic Regression
 
 ## Classification and Representation
 
@@ -161,6 +161,8 @@ Train a logistic regression classifier h<sub>θ</sub>(x) for each class￼ to pr
 
 To make a prediction on a new x, pick the class ￼that maximizes h<sub>θ</sub>(x)
 
+# Regularization
+
 ## Solving the problem of overfitting
 
 ### The Problem of Overfitting
@@ -219,3 +221,29 @@ The λ, or lambda, is the <b>regularization parameter</b>. It determines how muc
 Using the above cost function with the extra summation, we can smooth the output of our hypothesis function to reduce overfitting. If lambda is chosen to be too large, it may smooth out the function too much and cause underfitting.
 
 ### Regularized Linear Regression
+
+We can apply regularization to both linear regression and logistic regression. We will approach linear regression first.
+
+#### Gradient Descent
+
+We will modify our gradient descent function to separate out θ<sub>0</sub> from the rest of the parameters because we do not want to penalizeθ<sub>0</sub>.
+
+![IMG](img/img17.png)
+
+The term λ / m * θ<sub>j</sub> performs our regularization. With some manipulation our update rule can also be represented as:
+
+![IMG](img/img18.png)
+
+The first term in the above equation, 1 − α ( λ / m ) will always be less than 1. Intuitively you can see it as reducing the value of θ<sub>j</sub> by some amount on every update. Notice that the second term is now exactly the same as it was before.
+
+#### Normal Equation 
+
+Now let's approach regularization using the alternate method of the non-iterative normal equation.
+
+To add in regularization, the equation is the same as our original, except that we add another term inside the parentheses:
+
+![IMG](img/img19.png)
+
+L is a matrix with 0 at the top left and 1's down the diagonal, with 0's everywhere else. It should have dimension (n+1)×(n+1). Intuitively, this is the identity matrix (though we are not including x<sub>0</sub>), multiplied with a single real number λ.
+
+Recall that if m < n, then X<sup>T</sup>X is non-invertible. However, when we add the term λ⋅L, then X<sup>T</sup>X + λ⋅L becomes invertible.
