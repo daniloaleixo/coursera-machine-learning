@@ -109,3 +109,31 @@ Notice that <b>this algorithm is identical to the one we used in linear regressi
 A vectorized implementation is:
 
 ![IMG](img/img10.png)
+
+### Advanced Optimization
+
+Conjugate gradient", "BFGS", and "L-BFGS" are more sophisticated, faster ways to optimize θ that can be used instead of gradient descent.
+
+We first need to provide a function that evaluates the following two functions for a given input value θ:
+
+* J<sub>θ</sub>
+* Partial derivative of J<sub>θ</sub>
+
+We can write a single function that returns both of these:
+
+```
+function [jVal, gradient] = costFunction(theta)
+  jVal = [...code to compute J(theta)...];
+  gradient = [...code to compute derivative of J(theta)...];
+end
+```
+
+Then we can use octave's "fminunc()" optimization algorithm along with the "optimset()" function that creates an object containing the options we want to send to "fminunc()". 
+
+```
+options = optimset('GradObj', 'on', 'MaxIter', 100);
+initialTheta = zeros(2,1);
+   [optTheta, functionVal, exitFlag] = fminunc(@costFunction, initialTheta, options);
+```
+
+We give to the function "fminunc()" our cost function, our initial vector of theta values, and the "options" object that we created beforehand.
