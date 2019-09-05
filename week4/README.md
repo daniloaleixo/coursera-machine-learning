@@ -114,3 +114,25 @@ So we have constructed one of the fundamental operations in computers by using a
 #### Example: OR function
 
 ![IMG](img/img17.png)
+
+
+### Multiclass Classification
+
+To classify data into multiple classes, we let our hypothesis function return a vector of values. Say we wanted to classify our data into one of four categories. We will use the following example to see how this classification is done. This algorithm takes as input an image and classifies it accordingly:
+
+![IMG](img/img18.png)
+
+We can define our set of resulting classes as y:
+
+![IMG](img/img19.png)
+
+
+Each y<sup>(i)</sup> represents a different image corresponding to either a car, pedestrian, truck, or motorcycle. The inner layers, each provide us with some new information which leads to our final hypothesis function. The setup looks like:
+
+![IMG](img/img20.png)
+
+Our resulting hypothesis for one set of inputs may look like:
+
+![IMG](img/img21.png)
+
+In which case our resulting class is the third one down, or h<sub>Θ</sub>(x)<sub>3</sub>, which represents the motorcycle.
