@@ -57,3 +57,32 @@ In this section we'll do a vectorized implementation of the above functions. We'
 
 In other words, for layer j=2 and node k, the variable z will be:
 
+![IMG](img/img8.png)
+
+The vector representation of x and z<sup>j</sup> is:
+
+![IMG](img/img9.png)
+
+Setting x = a<sup>(1)</sup>, we can rewrite the equation as:
+
+![IMG](img/img10.png)
+
+
+We are multiplying our matrix Θ<sup>(j−1)</sup> with dimensions s<sub>j</sub> X (n+1)s (where s<sub>j</sub> is the number of our activation nodes) by our vector a<sup>(j−1)</sup> with height (n+1). This gives us our vector z<sup>(j)</sup> with height s<sub>j</sub>.
+Now we can get a vector of our activation nodes for layer j as follows:
+
+![IMG](img/img11.png)
+
+Where our function g can be applied element-wise to our vector z<sup>(j)</sup>.
+
+We can then add a bias unit (equal to 1) to layer j after we have computed a<sup>(j)</sup>. This will be element a<sub>0</sub><sup>(j)</sup> and will be equal to 1. To compute our final hypothesis, let's first compute another z vector:
+
+![IMG](img/img12.png)
+
+
+We get this final z vector by multiplying the next theta matrix after Θ<sup>(j−1)</sup> with the values of all the activation nodes we just got. This last theta matrix Θ<sup>(j)</sup> will have only <b>one row</b> which is multiplied by one column a<sup>(j)</sup> so that our result is a single number. We then get our final result with:
+
+![IMG](img/img13.png)
+
+Notice that in this <b>last step</b>, between layer j and layer j+1, we are doing <b>exactly the same thing</b> as we did in logistic regression. 
+Adding all these intermediate layers in neural networks allows us to more elegantly produce interesting and more complex non-linear hypotheses.
