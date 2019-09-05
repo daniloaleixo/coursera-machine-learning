@@ -86,3 +86,31 @@ We get this final z vector by multiplying the next theta matrix after Î˜<sup>(jâ
 
 Notice that in this <b>last step</b>, between layer j and layer j+1, we are doing <b>exactly the same thing</b> as we did in logistic regression. 
 Adding all these intermediate layers in neural networks allows us to more elegantly produce interesting and more complex non-linear hypotheses.
+
+
+## Applications
+
+### Examples and Intuitions I
+
+A simple example of applying neural networks is by predicting x<sub>1</sub> AND x<sub>2</sub>, which is the logical 'and' operator and is only true if both x<sub>1</sub> and x<sub>2</sub> are 1.
+
+The graph of our functions will look like:
+
+![IMG](img/img14.png)
+
+Remember that x<sub>0</sub> is our bias variable and is always 1.
+
+Let's set our first theta matrix as:
+
+
+![IMG](img/img15.png)
+
+This will cause the output of our hypothesis to only be positive if both x<sub>1</sub> and x<sub>2</sub> are 1. In other words:
+
+![IMG](img/img16.png)
+
+So we have constructed one of the fundamental operations in computers by using a small neural network rather than using an actual AND gate. Neural networks can also be used to simulate all the other logical gates. The following is an example of the logical operator 'OR', meaning either x<sub>1</sub> is true or x<sub>2</sub> is true, or both:
+
+#### Example: OR function
+
+![IMG](img/img17.png)
