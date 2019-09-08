@@ -55,4 +55,14 @@ The course is available at https://www.coursera.org/learn/machine-learning/home/
       </li>
     </ul>
   </li>
+    <li>
+    <a href="https://github.com/daniloaleixo/coursera-machine-learning/tree/master/week5/README.md">Week5</a>
+    <!-- <ul>
+      <li>
+        <a href="https://github.com/daniloaleixo/coursera-machine-learning/tree/master/week4#neural-networks-representation">
+          Neural Networks: Representation
+        </a>
+      </li>
+    </ul> -->
+  </li>
 </ul>
