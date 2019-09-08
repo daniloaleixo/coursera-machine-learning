@@ -106,9 +106,11 @@ For training example t =1 to m:
 ![IMG](img/img5.png)
 
 3. Using y<sup>(t)</sup> compute δ<sup>(L)</sup>=a<sup>(L)</sup> − y<sup>(t)</sup>
+
 Where L is our total number of layers and a<sup>(L)</sup> is the vector of outputs of the activation units for the last layer. So our "error values" for the last layer are simply the differences of our actual results in the last layer and the correct outputs in y. To get the delta values of the layers before the last layer, we can use an equation that steps us back from right to left:
 
 4. Compute δ<sup>(L-1)</sup>, δ<sup>(L-2)</sup>, ... ,δ<sup>(2)</sup> using δ<sup>(t)</sup> =( (Θ<sup>(t)</sup>)<sup>T</sup> δ<sup>(<i> l</i>+1)</sup>)  .∗  a<sup>(<i>l</i>)</sup>  .∗  (1−a<sup>(<i>l</i>)</sup>)
+
 The delta values of layer l are calculated by multiplying the delta values in the next layer with the theta matrix of layer l. We then element-wise multiply that with a function called g', or g-prime, which is the derivative of the activation function g evaluated with the input values given by  z<sup>(<i>l</i>)</sup>.
 The g-prime derivative terms can also be written out as:
 
@@ -119,4 +121,4 @@ Hence we update our new \DeltaΔ matrix.
 
 ![IMG](img/img7.png)
 
-The capital-delta matrix D is used as an "accumulator" to add up our values as we go along and eventually compute our partial derivative. Thus we get <sup>∂</sup> / <sub>∂Θ<sub>ij</sub><sup>(l)</sup></sub> J(Θ) =  D<sub>ij</sub><sup>(l)​</sup>
+The capital-delta matrix D is used as an "accumulator" to add up our values as we go along and eventually compute our partial derivative. Thus we get <sup>∂</sup>/<sub>∂Θ<sub>ij</sub><sup>(l)</sup></sub> J(Θ) =  D<sub>ij</sub><sup>(l)​</sup>
