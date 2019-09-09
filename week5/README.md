@@ -120,3 +120,23 @@ Hence we update our new \DeltaΔ matrix.
 ![IMG](img/img7.png)
 
 The capital-delta matrix D is used as an "accumulator" to add up our values as we go along and eventually compute our partial derivative. Thus we get <sup>∂</sup> / <sub>∂Θ<sub>ij</sub><sup>(l)</sup></sub> J(Θ) =  D<sub>ij</sub><sup>(l)​</sup>
+
+### Backpropagation Intuition
+
+Recall that the cost function for a neural network is:
+
+![IMG](img/img8.png)
+
+If we consider simple non-multiclass classification (k = 1) and disregard regularization, the cost is computed with:
+
+![IMG](img/img9.png)
+
+Intuitively, δ<sub>j</sub><sup>(l)</sup> is the "error" for a<sub>j</sub><sup>(l)</sup> (unit j in layer l). More formally, the delta values are actually the derivative of the cost function:
+
+![IMG](img/img10.png)
+
+Recall that our derivative is the slope of a line tangent to the cost function, so the steeper the slope the more incorrect we are. Let us consider the following neural network below and see how we could calculate some δ<sub>j</sub><sup>(l)</sup>
+
+![IMG](img/img11.png)
+
+In the image above, to calculate δ<sub>2</sub><sup>(2)</sup>, we multiply the weights Θ<sub>12</sub><sup>(2)</sup> and Θ<sub>22</sub><sup>(2)</sup> by their respective δ values found to the right of each edge. So we get δ<sub>2</sub><sup>(2)</sup> = Θ<sub>12</sub><sup>(2)</sup> * δ<sub>1</sub><sup>(3)</sup> + Θ<sub>22</sub><sup>(2)</sup> * δ<sub>2</sub><sup>(3)</sup>. To calculate every single possible δ<sub>j</sub><sup>(l)</sup>, we could start from the right of our diagram. We can think of our edges as our Θ<sub>ij</sub>. Going from right to left, to calculate the value of δ<sub>j</sub><sup>(l)</sup>, you can just take the over all sum of each weight times the δ it is coming from. Hence, another example would be δ<sub>2</sub><sup>(3)</sup> = Θ<sub>12</sub><sup>(3)</sup> * δ<sub>1</sub><sup>(4)</sup>.
