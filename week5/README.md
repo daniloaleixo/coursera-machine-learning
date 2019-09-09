@@ -62,7 +62,13 @@ Note:
 
 ### Backpropagation Algorithm
 
-  
+#### What is backpropagation?
+
+Training a neural network typically happens in two phases.
+1. Forward Pass: We compute the outputs of every node in the forward pass and calculate the final loss of the network.
+2. Backward Pass: We start at the end of the network, backpropagate or feed the errors back, recursively apply chain rule to compute gradients all the way to the inputs of the network and then update the weights. This method of backpropagating the errors and computing the gradients is called backpropagation.
+
+Backpropagation is a “local” process and can be viewed as a recursive application of the chain rule.
 
 "Backpropagation" is neural-network terminology for minimizing our cost function, just like what we were doing with gradient descent in logistic and linear regression. Our goal is to compute:
 
@@ -90,11 +96,10 @@ To do so, we use the following algorithm:
 
 #### Back propagation Algorithm
 
+
   
 
 Given training set {(x<sup>(1)</sup>,y<sup>(1)</sup>) ... (x<sup>(m)</sup>,y<sup>(m)</sup>)}
-
-  
 
 Set Δ<sub>i, j</sub><sup>(l)</sup> := 0 for all (l,i,j), (hence you end up having a matrix full of zeros)
 
@@ -140,3 +145,4 @@ Recall that our derivative is the slope of a line tangent to the cost function, 
 ![IMG](img/img11.png)
 
 In the image above, to calculate δ<sub>2</sub><sup>(2)</sup>, we multiply the weights Θ<sub>12</sub><sup>(2)</sup> and Θ<sub>22</sub><sup>(2)</sup> by their respective δ values found to the right of each edge. So we get δ<sub>2</sub><sup>(2)</sup> = Θ<sub>12</sub><sup>(2)</sup> * δ<sub>1</sub><sup>(3)</sup> + Θ<sub>22</sub><sup>(2)</sup> * δ<sub>2</sub><sup>(3)</sup>. To calculate every single possible δ<sub>j</sub><sup>(l)</sup>, we could start from the right of our diagram. We can think of our edges as our Θ<sub>ij</sub>. Going from right to left, to calculate the value of δ<sub>j</sub><sup>(l)</sup>, you can just take the over all sum of each weight times the δ it is coming from. Hence, another example would be δ<sub>2</sub><sup>(3)</sup> = Θ<sub>12</sub><sup>(3)</sup> * δ<sub>1</sub><sup>(4)</sup>.
+
