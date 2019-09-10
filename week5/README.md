@@ -1,4 +1,5 @@
 
+
   
 
 # Neural Networks: Learning
@@ -311,3 +312,48 @@ end;
 We previously saw how to calculate the deltaVector. So once we compute our gradApprox vector, we can check that gradApprox ≈ deltaVector.
 
 Once you have verified **once** that your backpropagation algorithm is correct, you don't need to compute gradApprox again. The code to compute gradApprox can be very slow, so comment it.
+
+## Random Initialization
+
+Initializing all theta weights to zero does not work with neural networks. When we backpropagate, all nodes will update to the same value repeatedly. Instead we can randomly initialize our weights for our Θ matrices using the following method:
+
+![IMG](img/img15.png)
+
+Hence, we initialize each Θ<sub>ij</sub><sup>(l)</sup> to a random value between[−ϵ,ϵ]. Using the above formula guarantees that we get the desired bound. The same procedure applies to all the Θ's. Below is some working code you could use to experiment.
+
+```
+% If the dimensions of Theta1 is 10x11, Theta2 is 10x11 and Theta3 is 1x11.
+
+Theta1 = rand(10,11) * (2 * INIT_EPSILON) - INIT_EPSILON;
+Theta2 = rand(10,11) * (2 * INIT_EPSILON) - INIT_EPSILON;
+Theta3 = rand(1,11) * (2 * INIT_EPSILON) - INIT_EPSILON;
+```
+
+rand(x,y) is just a function in octave that will initialize a matrix of random real numbers between 0 and 1.
+
+##  Putting it Together
+
+First, pick a network architecture; choose the layout of your neural network, including how many hidden units in each layer and how many layers in total you want to have.
+
+-   Number of input units = dimension of features  x<sup>(i)</sup>
+-   Number of output units = number of classes
+-   Number of hidden units per layer = usually more the better (must balance with cost of computation as it increases with more hidden units)
+-   Defaults: 1 hidden layer. If you have more than 1 hidden layer, then it is recommended that you have the same number of units in every hidden layer.
+
+### Training a Neural Network
+
+1. Randomly initialize the weights
+2. Implement forward propagation to get h<sub>Θ</sub>(x<sup>(i)</sup>) for any x<sup>(i)</sup>
+3. Implement the cost function
+4. Implement backpropagation to compute partial derivatives
+5. Use gradient checking to confirm that your backpropagation works. Then disable gradient checking.
+6. Use gradient descent or a built-in optimization function to minimize the cost function with the weights in theta.
+
+When we perform forward and back propagation, we loop on every training example:
+```
+for i = 1:m,
+   Perform forward propagation and backpropagation using example (x(i),y(i))
+   (Get activations a(l) and delta terms d(l) for l = 2,...,L
+```
+
+Ideally, you want h<sub>Θ</sub>(x<sup>(i)</sup>)  ≈  y<sup>(i)</sup>. This will minimize our cost function. However, keep in mind that **J(Θ) is not convex** and thus we can end up in a local minimum instead.
