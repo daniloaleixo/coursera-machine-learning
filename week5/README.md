@@ -48,6 +48,8 @@ Recall that in neural networks, we may have many output nodes. We denote h<sub>Î
 
 ![IMG](img/img1.png)
 
+Where the h<sub>Î˜</sub>(x<sup>(i)</sup>)<sub>k</sub> = a<sub>k</sub><sup>(3)</sup> is the activation (output
+value) of the k-th output unit.
   
 
   
