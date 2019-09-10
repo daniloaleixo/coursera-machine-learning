@@ -83,6 +83,13 @@ endfor
 J = J / m;
 
 
+% Adding regularization
+Theta1_without_bias = Theta1(:, 2:size(Theta1, 2));
+Theta2_without_bias = Theta2(:, 2:size(Theta2, 2));
+reg = ( sum(sum(Theta1_without_bias .^ 2)) + sum(sum(Theta2_without_bias .^ 2)) )  * lambda / 2 / m;
+J = J + reg;
+
+
 
 
 
