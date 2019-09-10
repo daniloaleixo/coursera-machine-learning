@@ -62,6 +62,40 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
+% Initialize a1
+% a_i = X;
+% thetas = [Theta1, Theta2]
+
+% for i=1:2
+%     % Include column of 1s
+%     a_i = [ones(size(a_i, 1), 1) a_i];
+
+%     z_i_plus_1 = a_i * thetas(i)';
+%     a_i_plus_1 = sigmoid(z_2);
+%     a_i = a_i_plus_1
+% endfor
+
+% First round
+a_1 = X;
+a_1 = [ones(size(a_1, 1), 1) a_1];
+z_2 = a_1 * Theta1';
+a_2 = sigmoid(z_2);
+
+% Second round
+a_2 = [ones(size(a_2, 1), 1) a_2];
+z_3 = a_2 * Theta2';
+a_3 = sigmoid(z_3);
+
+h = a_3;
+% for k=1:num_labels
+%     J = J + (-1 * double(y==k)' * log(h) - (1 - double(y==k))' * log(1 - h))
+% endfor
+size(h)
+size(double(y==1)')
+size(log(h))
+-1 * double(y==1)' * log(h)
+J = J + (-1 * double(y==1)' * log(h) - (1 - double(y==1))' * log(1 - h))
+
 
 
 
