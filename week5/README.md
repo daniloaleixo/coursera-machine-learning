@@ -205,7 +205,7 @@ The g-prime derivative terms can also be written out as:
 
 5. Δ<sub>i,j</sub><sup>(l)</sup> ​:= Δ<sub>i,j</sub><sup>(l)</sup> + a<sub>j</sub><sup>(l)</sup> ​δ<sub>i</sub><sup>(l+1)</sup>​ or with vectorization, Δ<sup>(l)</sup> := Δ<sup>(l)</sup>+δ<sup>(l+1)</sup> (a<sup>(l)</sup>)<sup><i>T</i></sup>
 
-Hence we update our new \DeltaΔ matrix.
+Hence we update our new Δ matrix.
 
   
 
