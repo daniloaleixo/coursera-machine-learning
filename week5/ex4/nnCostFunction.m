@@ -127,9 +127,15 @@ for i=1:m
 
 endfor
 
-Theta1_grad = delta_1 / m;
-Theta2_grad = delta_2 / m;
+reg1 = sum(sum(Theta1(2:end, :))) .* lambda ./ m;
+reg2 = sum(sum(Theta2(2:end, :))) .* lambda ./ m;
 
+
+Theta1_grad = delta_1 / m + sum(sum(Theta1(2:end, :))) .* lambda ./ m;
+Theta2_grad = delta_2 / m + sum(sum(Theta2(2:end, :))) .* lambda ./ m;
+
+Theta1_grad(1:end) = delta_1(1:end) / m;
+Theta2_grad(1:end) = delta_2(1:end) / m;
 
 
 
