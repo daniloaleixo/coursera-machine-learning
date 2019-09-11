@@ -62,6 +62,12 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
+
+
+% 
+% Forward Prop
+% 
+
 % First round
 a_1 = X;
 a_1 = [ones(size(a_1, 1), 1) a_1];
@@ -83,11 +89,47 @@ endfor
 J = J / m;
 
 
-% Adding regularization
+% Adding regularization to Cost function
 Theta1_without_bias = Theta1(:, 2:size(Theta1, 2));
 Theta2_without_bias = Theta2(:, 2:size(Theta2, 2));
 reg = ( sum(sum(Theta1_without_bias .^ 2)) + sum(sum(Theta2_without_bias .^ 2)) )  * lambda / 2 / m;
 J = J + reg;
+
+
+
+
+
+delta_2 = zeros(size(Theta2));
+delta_1 = zeros(size(Theta1));
+
+
+% 
+% Backpropagation
+% 
+for i=1:m
+  % Forward pass 
+  a1 = X(i, :);
+  a1 = [ones(size(a1, 1), 1) a1];
+  z2 = a1 * Theta1';
+
+  a2 = sigmoid(z2);
+  a2 = [ones(size(a2, 1), 1) a2];
+  z3 = a2 * Theta2';
+  a3 = sigmoid(z3);
+
+  % Back
+  d3 = a3 - double(y(i) == 1:num_labels);
+  d2 = d3 * Theta2 .* sigmoidGradient([1 z2]);
+  d2 = d2(2:end);
+
+  delta_2 = delta_2 + d3' * a2;
+  delta_1 = delta_1 + d2' * a1;
+
+endfor
+
+Theta1_grad = delta_1 / m;
+Theta2_grad = delta_2 / m;
+
 
 
 
