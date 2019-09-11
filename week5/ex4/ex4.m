@@ -32,6 +32,9 @@ num_labels = 10;          % 10 labels, from 1 to 10
 % Load Training Data
 fprintf('Loading and Visualizing Data ...\n')
 
+% The matrices Theta1 and Theta2 will now be in your workspace
+% Theta1 has size 25 x 401
+% Theta2 has size 10 x 26
 load('ex4data1.mat');
 m = size(X, 1);
 
