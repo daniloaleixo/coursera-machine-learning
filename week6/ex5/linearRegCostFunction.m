@@ -16,7 +16,7 @@ grad = zeros(size(theta));
 % Instructions: Compute the cost and gradient of regularized linear 
 %               regression for a particular choice of theta.
 %
-%               You should set J to the cost and grad to the gradient.
+%               You should set J to thes cost and grad to the gradient.
 %
 % X = [ ones(size(X)) X];
 % lambda = 1
