@@ -1,3 +1,4 @@
+
 # Support Vector Machines
 
 ## Large Margin Classification
@@ -94,3 +95,34 @@ And we calculate the kernels and then we'll have something like:
 ![IMG](img/img10.png)
 
 ## SVMs in Practice
+
+For SVM we should use software package that optimizes it like liblinear, libvsm, etc... so solve parameters Θ.
+
+There are a lot of kernel functions other than Gaussian Kernel, but we generally use Gaussian or linear kernel.
+
+It is very important to perform **feature scaling** before implement SVM.
+
+### Multiclass Classification
+
+Many SVM packages already have built-in multi-class classification functionality.
+If we choose to do it on our own, we could approach using the one-vs-all method (Train K SVM, one to distinguish y = i from the rest, for i = 1, 2, ... , K), get Θ<sup>(1)</sup>, Θ<sup>(2)</sup>, ..., Θ<sup>(K)</sup> and then pick class i with the largest (Θ<sup>(i)</sup>)<sup>T</sup>x.
+
+### Logistic Regression vs. SVM
+
+Considering:
+* n = number of features (x E **R**<sup>n+1</sup>)
+* m = number of training examples
+
+**If we have a large n (related to m):**
+We use logistic regression, or SVM without a kernel ("linear kernel")
+(PS: n >= m)
+
+**If n is small and m is intermediate:**
+Use SVM with Gaussian Kernel
+(PS: 1 < n < 1.000 and 10 < m < 10.000)
+
+**If n is small and m is large:**
+Create and add more features and the use logistic regression or SVM without a kernel (because Gaussian kernel could be slow)
+(PS: 1 < n <1.000 and m = 50.000+)
+
+To conclude: **Neural Networks** likely to work well for most of these settings, but may be slower to train.
