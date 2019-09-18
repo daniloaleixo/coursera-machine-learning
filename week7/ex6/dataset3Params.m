@@ -24,9 +24,29 @@ sigma = 0.3;
 %
 
 
+% Possible Cs and sigmas
+vals = [0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30];
+min_error = 1;
 
+for i=1:size(vals, 2)
+  for j=1:size(vals, 2)
+    temp_C = vals(i);
+    temp_sigma = vals(j);
 
+    % Train the dataset
+    model=svmTrain(X, y, temp_C, @(x1, x2) gaussianKernel(x1, x2, temp_sigma));
 
+    % Make predictions
+    predictions = svmPredict(model, Xval);
+    err = mean(double(predictions ~= yval));
+
+    if (err < min_error)
+      min_error = err;
+      C = temp_C;
+      sigma = temp_sigma;
+    endif 
+  endfor
+endfor
 
 
 % =========================================================================
