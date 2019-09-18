@@ -1,4 +1,5 @@
 
+
 # Notes from Machine Learning Course
 
 The course is available at https://www.coursera.org/learn/machine-learning/home/welcome
@@ -77,6 +78,16 @@ The course is available at https://www.coursera.org/learn/machine-learning/home/
       <li>
         <a href="https://github.com/daniloaleixo/coursera-machine-learning/tree/master/week6#machine-learning-system-design">
          Machine Learning System Design
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="https://github.com/daniloaleixo/coursera-machine-learning/tree/master/week7/README.md">Week7</a>
+    <ul>
+      <li>
+        <a href="https://github.com/daniloaleixo/coursera-machine-learning/blob/master/week7/README.md#support-vector-machines">
+          Support Vector Machines
         </a>
       </li>
     </ul>
