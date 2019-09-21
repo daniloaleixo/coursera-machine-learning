@@ -27,7 +27,18 @@ centroids = zeros(K, n);
 %
 
 
+for centroid_index=1:K
+  count = 0;
+  sum = zeros(1, n);
+  for i=1:m
+    if (idx(i) == centroid_index)
+      sum = sum + X(i, 1:end);
+      count = count + 1;
+    endif
+  endfor
 
+  centroids(centroid_index, 1:end) = sum / count;
+endfor
 
 
 
