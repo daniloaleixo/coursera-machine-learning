@@ -80,5 +80,78 @@ It turns out the Elbow Method isn't used that often, and one reason is that, if 
 
 # Dimensionality Reduction
 ## Motivation
+
+### Motivation I: Data Compression
+There are a couple of different reasons why one might want to do dimensionality reduction. One is data compression, and as we'll see later, a few videos later, data compression not only allows us to compress the data and have it therefore use up less computer memory or disk space, but it will also allow us to speed up our learning algorithms.
+
+![IMG](img/img4.png)
+
+For the reduction we could for example approximate all the points in 3D in a place, and then reduce to a 2D space like the image above.
+
+### Motivation II: Visualization
+I'd like to tell you about a second application of dimensionality reduction and that is to visualize the data. For a lot of machine learning applications, it really helps us to develop effective learning algorithms, if we can understand our data better. If there is some way of visualizing the data better, and so, dimensionality reduction offers us, often, another useful tool to do so.
+
+
 ## Principal Component Analysis
+
+For the problem of dimensionality reduction, by far the most popular, by far the most commonly used algorithm is something called principle components analysis, or PCA. 
+
+### Principal Component Analysis Problem Formulation
+
+![IMG](img/img5.png)
+
+### Principal Component Analysis Algorithm
+Before applying PCA, there is a data pre-processing step which you should always do. Given the trading sets of the examples is important to always perform mean normalization, and then depending on your data, maybe perform feature scaling as well.
+
+#### Algorithm
+We want to reduce  from n-dimensions to k-dimensions.
+
+First:
+
+* we're going to compute something called the covariance matrix:
+Σ = (1/m) * Σ<sub>from 1 to n</sub> (x<sup>(i)</sup>)(x<sup>(i)</sup>)<sup>T</sup>
+* Then we're going to compute the eigenvectors of matrix Σ;
+```
+[U, S, V] = svd(sigma);
+```
+* And then we get the first k vectors from U matrix.
+```
+U_reduce = U(:, 1:k);
+```
+* And then generate the space of vectors from X in U_reduce generated space:
+```
+z = U_reduce' * x;
+```
+
 ## Applying PCA
+
+### Reconstruction from Compressed Representation
+
+So, if this is a compression algorithm, there should be a way to go back from this compressed representation back to an approximation of your original high-dimensional data.
+
+X<sub>approx</sub> = U<sub>reduce</sub> * z<sup>(1)</sup>
+
+### Choosing the Number of Principal Components
+
+In the PCA algorithm we take N dimensional features and reduce them to some K dimensional feature representation. This number K is a parameter of the PCA algorithm. This number K is also called the number of principle components or the number of principle components that we've retained.
+Let's give you some guidelines, tell you about how people tend to think about how to choose this parameter K for PCA.
+
+What PCA tries to do is it tries to minimize the average squared projection error. So it tries to minimize this quantity, which is the difference between the original data x<sup>(i)</sup> and the projected version, x<sup>(i)</sup><sub>approx</sub>, so it tries to minimize the squared distance between x and it's projection onto that lower dimensional surface.
+
+Average squared projection error:
+ (1/m) *  Σ<sub>from 1 to m</sub> ||x<sup>(i)</sup> - x<sup>(i)</sup><sub>approx</sub>||<sup>2</sup> 
+
+Also let me define the total variation in the data as:
+
+(1/m) *  Σ<sub>from 1 to m</sub> ||x<sup>(i)</sup>||<sup>2</sup> 
+
+So we'll try to minimize and choose the value of *k* where we have the minimum:
+
+![IMG](img/img6.png)
+
+So if we have less than 0.01 we have more than 99% of variance retained.
+
+So how do you implement this? Well, here's one algorithm that you might use.
+
+You may start off, if you want to choose the value of k, we might start off with k equals 1, then calculate the variance retained if it is higher than your target (e.g. 95%), we are done, if not we continue to increment the K by 1, until we have the variance retained of our threshold.
+
