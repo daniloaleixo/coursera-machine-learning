@@ -1,5 +1,6 @@
 
 
+
 # Notes from Machine Learning Course
 
 The course is available at https://www.coursera.org/learn/machine-learning/home/welcome
@@ -88,6 +89,21 @@ The course is available at https://www.coursera.org/learn/machine-learning/home/
       <li>
         <a href="https://github.com/daniloaleixo/coursera-machine-learning/blob/master/week7/README.md#support-vector-machines">
           Support Vector Machines
+        </a>
+      </li>
+    </ul>
+  </li>
+   <li>
+    <a href="https://github.com/daniloaleixo/coursera-machine-learning/tree/master/week8/README.md">Week8</a>
+    <ul>
+      <li>
+        <a href="https://github.com/daniloaleixo/coursera-machine-learning/blob/master/week8/README.md#unsupervised-learning">
+          Unsupervised Learning (K-Means Algorithm)
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/daniloaleixo/coursera-machine-learning/blob/master/week8/README.md#dimensionality-reduction">
+          Dimensionality Reduction (PCA Algorithm)
         </a>
       </li>
     </ul>
