@@ -44,9 +44,9 @@ Theta_grad = zeros(size(Theta));
 
 
 aux = (X * Theta' - Y) .* R;
-J = sum(sum(aux .^ 2)) / 2;
-X_grad = aux * Theta;
-Theta_grad = aux' * X;
+J = sum(sum(aux .^ 2)) / 2 + lambda / 2 * (sum(sum(Theta .^ 2)) + sum(sum(X .^ 2)));
+X_grad = aux * Theta + lambda * X;
+Theta_grad = aux' * X + lambda * Theta;
 
 
 
