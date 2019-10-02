@@ -1,7 +1,6 @@
 # Anomaly Detection
 ## Density Estimation
 ### Problem Motivation
-So, the anomaly detection problem is the following.
 ![IMG](img/img1.png)
 Let's say that on, the next day, you have a new aircraft engine that rolls off the assembly line and your new aircraft engine has some set of features x<sub>test</sub>. What the anomaly detection problem is, we want to know if this aircraft engine is anomalous in any way, in other words, we want to know if, maybe, this engine should undergo further testing because, or if it looks like an okay engine, and so it's okay to just ship it to a customer without further testing.
 
@@ -35,7 +34,6 @@ P(x) = P(x<sub>1</sub>; µ<sub>1</sub>, σ<sub>1</sub><sup>2</sup>) * P(x<sub>2<
 
 We can prove that all features x<sub>k</sub>, k **c** [1, n] are independent.
 
-#### Anomaly Detection Algorithm
 ![IMG](img/img4.png)
 
 
