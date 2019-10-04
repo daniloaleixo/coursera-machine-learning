@@ -1,3 +1,4 @@
+
 # Anomaly Detection
 ## Density Estimation
 ### Problem Motivation
@@ -38,6 +39,42 @@ We can prove that all features x<sub>k</sub>, k **c** [1, n] are independent.
 
 
 ## Building an Anomaly Detection System
+### Developing and Evaluating an Anomaly Detection System
+Given the training cross validation and test sets, here's how you evaluate or here is how you develop and evaluate an algorithm.
+
+Fit model P(x) on training set {x<sup>(1)</sup>, ... , x<sup>(m)</sup>}
+
+On a cross-validation/test example x, predict: 
+
+y = 1 if P(x) < ε (anomaly) or 0 if P(x) >= ε (normal) 
+
+Possible evaluation metrics: 
+* True positive, false positive, false negative, true negative
+* Precision/recall
+* F1-score
+### Anomaly Detection vs. Supervised Learning 
+#### Anomaly Detection
+We use more anomaly detection, with:
+* Very smal number of positive examples
+* Large number of negative examples
+* Many different types of anomalies. Hard for any algorithm to learn from positive examples what the anormalies look like
+* Future anomalies may look nothing like any anomalous example so far
+* Examples:
+	* Fraud detection
+	* Manufacturing
+	* Monitoring machines in a data center
+
+#### Supervised Learning
+We use supervised learning with:
+* Large number of positive examples
+* Enough positive examples for algorithm to get a sense of what positive examples are like, future positive examples likely to be similar to ones in the training set
+* Examples:
+	* Email spam classifier
+	* Weather prediction
+	* Cancer classification
+### Choosing What Features to Use 
+We may want to test a few times, combine some features of transform features in order the algorithm better.
+
 ## Multivariate Gaussian Distribution (Optional)
 
 # Recommender Systems
