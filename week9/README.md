@@ -1,4 +1,5 @@
 
+
 # Anomaly Detection
 ## Density Estimation
 ### Problem Motivation
@@ -76,6 +77,34 @@ We use supervised learning with:
 We may want to test a few times, combine some features of transform features in order the algorithm better.
 
 ## Multivariate Gaussian Distribution (Optional)
+### Multivariate Gaussian Distribution
+
+In multivariate Gaussian instead of model P(x) = P(x<sub>1</sub>) * P(x<sub>2</sub>) * ... * P(x<sub>n</sub>) separately, we will model P(x) all in on go.
+
+Paratemeters:
+* µ ∈ **R**<sup>n</sup>, where µ = <sup>1</sup> / <sub>m</sub> * Σ<sub>i=1 to m</sub> x<sup>(i)</sup>
+* Σ (covariance matrix), where Σ = <sup>1</sup> / <sub>m</sub> * Σ<sub>i=1 to m</sub> (x<sup>(i)</sup> - µ)(x<sup>(i)</sup> - µ)<sup>T</sup>
+
+P(x; µ, Σ) = [ (2π)<sup><sup>n</sup>/<sub>2</sub></sup> |Σ|<sup><sup>1</sup>/<sub>2</sub></sup> ]<sup>-1</sup> * exp[ <sup>-1</sup>/<sub>2</sub> (x - µ)<sup>T</sup> Σ<sup>-1</sup> (x - µ) ]
+
+### Anomaly Detection using the Multivariate Gaussian Distribution
+
+And we flag an anomaly if P(x; µ, Σ) < ε
+
+#### Original Model vs. Multivariate
+##### Original Model
+P(x<sub>1</sub>; µ<sub>1</sub>, σ<sub>1</sub><sup>2</sup>) * P(x<sub>2</sub>; µ<sub>2</sub>, σ<sub>2</sub><sup>2</sup>) * ... * P(x<sub>n</sub>; µ<sub>n</sub>, σ<sub>n</sub><sup>2</sup>)
+
+* Manually creates features to capture anomalies where x<sub>1</sub>, x<sub>2</sub> take unusual combinations of values (e.g cpu load / memory)
+* Computationaly cheaper (scales better)
+* Okay even if *m*(training set size) is small 
+##### Muiltivariate Gaussian
+P(x; µ, Σ) = [ (2π)<sup><sup>n</sup>/<sub>2</sub></sup> |Σ|<sup><sup>1</sup>/<sub>2</sub></sup> ]<sup>-1</sup> * exp[ <sup>-1</sup>/<sub>2</sub> (x - µ)<sup>T</sup> Σ<sup>-1</sup> (x - µ) ]
+
+* Automatically captures correlation between features
+* Computationally more expensive
+* Must have m > n or else Σ is non-invertible
+
 
 # Recommender Systems
 ## Predicting Movie Ratings
