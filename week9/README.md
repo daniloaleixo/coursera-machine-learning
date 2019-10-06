@@ -108,5 +108,35 @@ P(x; µ, Σ) = [ (2π)<sup><sup>n</sup>/<sub>2</sub></sup> |Σ|<sup><sup>1</sup>
 
 # Recommender Systems
 ## Predicting Movie Ratings
+### Problem Formulation
+The idea of a recommender system is to give the best choice possible, given the movies you've liked. 
+
+Notations: 
+* n<sub>u</sub> = number of users
+* n<sub>m</sub> = number of movies
+* r(i, j) = 1 if the user *j* has rated movie *i*
+* y(i, j) = rating given by user *j* to movie *i* (defined onlyl if r(i, j) =1 )
+
+### Content Based Recommendations
+
+We want to predict the movies that was not rated by the users, so each movie will have a set of features correspondent to it, giving information about genre, actors, etc.
+
+For each user *j*, learn a parameter θ<sup>(j)</sup> ∈ **R**<sup>n</sup>. Predict user *j* as rating movie *i* with  (θ<sup>(j)</sup>)<sup>T</sup>x<sup>(i)</sup> stars.
+
+
+Where θ<sup>(j)</sup> is the parameter vector for user *j* and m<sup>(y)</sup> the number of movies rated by user *j*.
+
+#### Optimization objective
+
+To learn θ<sup>(j)</sup> (parameter for user *j*):
+
+min <sup>1</sup>/<sub>2</sub> * Σ<sub>i:r(i, j)=1</sub> [ (θ<sup>(j)</sup>)<sup>T</sup>x<sup>(i)</sup> - y<sup>(i, j)</sup> ]<sup>2</sup> + <sup>λ</sup>/<sub>2</sub> * Σ<sub>k=1..n</sub> [ θ<sub>k</sub><sup>(j)</sup> ]<sup>2</sup>
+
+To learn θ<sup>(1)</sup>, θ<sup>(2)</sup>, ... , θ<sup>(n<sub>u</sub>)</sup>:
+
+min <sup>1</sup>/<sub>2</sub> * Σ<sub>j=1..n<sub>u</sub></sub> Σ<sub>i:r(i, j)=1</sub> [ (θ<sup>(j)</sup>)<sup>T</sup>x<sup>(i)</sup> - y<sup>(i, j)</sup> ]<sup>2</sup> + <sup>λ</sup>/<sub>2</sub> * Σ<sub>j=1..n<sub>u</sub></sub>  Σ<sub>k=1..n</sub> [ θ<sub>k</sub><sup>(j)</sup> ]<sup>2</sup>
+
+![IMG](img/img5.png)
+ 
 ## Collaborative Filtering
 ## Low Rank Matrix Factorization
