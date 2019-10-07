@@ -139,4 +139,30 @@ min <sup>1</sup>/<sub>2</sub> * Σ<sub>j=1..n<sub>u</sub></sub> Σ<sub>i:r(i, j)
 ![IMG](img/img5.png)
  
 ## Collaborative Filtering
+### Collaborative Filtering
+
+![IMG](img/img6.png)
+
+We have a list of features to each movie and the ratings for the user for each movie, collaborative filtering makes one user rating improves the whole algorithm.
+
+Previously we viewed that given x<sup>(1)</sup>, ... , x<sup>(n<sub>m</sub>)</sup> we can learn θ<sup>(1)</sup>, ... , θ<sup>(n<sub>u</sub>)</sup>
+
+So we can use  θ<sup>(1)</sup>, ... , θ<sup>(n<sub>u</sub>)</sup> to improve the features x<sup>(1)</sup>, ... , x<sup>(n<sub>m</sub>)</sup>.
+
+And we can starting looping and improving thetas and x's at the same time.
+
+### Algorithm
+Minimizing x<sup>(1)</sup>, ... , x<sup>(n<sub>m</sub>)</sup> and θ<sup>(1)</sup>, ... , θ<sup>(n<sub>u</sub>)</sup> simultaneously:
+
+J(x<sup>(1)</sup>, ... , x<sup>(n<sub>m</sub>)</sup>, θ<sup>(1)</sup>, ... , θ<sup>(n<sub>u</sub>)</sup>) = <sup>1</sup>/<sub>2</sub> * Σ<sub>j=1..n<sub>u</sub></sub> Σ<sub>i:r(i, j)=1</sub> [ (θ<sup>(j)</sup>)<sup>T</sup>x<sup>(i)</sup> - y<sup>(i, j)</sup> ]<sup>2</sup> + <sup>λ</sup>/<sub>2</sub> * Σ<sub>j=1..n<sub>u</sub></sub>  Σ<sub>k=1..n</sub> [ θ<sub>k</sub><sup>(j)</sup> ]<sup>2</sup>  + <sup>λ</sup>/<sub>2</sub> * Σ<sub>i=1..n<sub>m</sub></sub>  Σ<sub>k=1..n</sub> [ x<sub>k</sub><sup>(i)</sup> ]<sup>2</sup>
+
+1. Initialize x<sup>(1)</sup>, ... , x<sup>(n<sub>m</sub>)</sup>, θ<sup>(1)</sup>, ... , θ<sup>(n<sub>u</sub>)</sup> to small random values.
+2. Minimize J(x<sup>(1)</sup>, ... , x<sup>(n<sub>m</sub>)</sup>, θ<sup>(1)</sup>, ... , θ<sup>(n<sub>u</sub>)</sup>) using gradient descent (or an advanced optimization algorithm). E.g. for every j = 1, ... , n<sub>u</sub> and i = 1, ... , n<sub>m</sub>:
+
+x<sub>k</sub><sup>(i)</sup> := x<sub>k</sub><sup>(i)</sup> - α [ Σ<sub>j:r(i, j)=1</sub> ( (θ<sup>(j)</sup>)<sup>T</sup>x<sup>(i)</sup> - y<sup>(i, j)</sup> ) θ<sub>k</sub><sup>(j)</sup> + λ x<sub>k</sub><sup>(i)</sup> ]
+
+θ<sub>k</sub><sup>(j)</sup> := θ<sub>k</sub><sup>(j)</sup> - α [ Σ<sub>i:r(i, j)=1</sub> ( (θ<sup>(j)</sup>)<sup>T</sup>x<sup>(i)</sup> - y<sup>(i, j)</sup> ) θ<sub>k</sub><sup>(i)</sup> + λ x<sub>k</sub><sup>(j)</sup> ]
+
+3. For a user with parameters θ and a movie with (learned) features x, predict a star rating of θ<sup>T</sup>x
+
 ## Low Rank Matrix Factorization
