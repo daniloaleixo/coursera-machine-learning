@@ -166,3 +166,16 @@ x<sub>k</sub><sup>(i)</sup> := x<sub>k</sub><sup>(i)</sup> - α [ Σ<sub>j:r(i, 
 3. For a user with parameters θ and a movie with (learned) features x, predict a star rating of θ<sup>T</sup>x
 
 ## Low Rank Matrix Factorization
+### Vectorization: Low Rank Matrix Factorization
+![IMG](img/img7.png)
+
+#### Finding related movies
+We can find related movies by using the vector of features x<sup>(i)</sup>, if || x<sup>(i)</sup> - x<sup>(j)</sup> || is small we can conclude that movie *i* and *j* are related.
+
+### Implementational Detail: Mean Normalization
+
+To motivate the idea of mean normalization, let's consider an example of where there's a user that has not rated any movies. So the θ of the user will be all 0's and if we multiply by x(i) for any movie we will have predicted rating equal 0.
+
+So to correct this implementation error we use mean normalization:
+
+ (θ<sup>(j)</sup>)<sup>T</sup>x<sup>(i)</sup> + μ<sub>i</sub>
